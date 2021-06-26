@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MetaModel: Codable {
+struct Meta: Codable {
     var total_count: Int
     var pageable_count: Int
     var is_end: Bool

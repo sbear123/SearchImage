@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ImageModel: Codable {
+struct Document: Codable {
     var collection: String?
     var thumbnail_url: String?
     var image_url: String?
