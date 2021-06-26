@@ -17,7 +17,6 @@ class MainViewModel {
     var text = ""
     var searchData: Search = Search(meta: Meta(), document: [])
     
-    let network = APIManager()
     let service = MainService()
     let disposeBag = DisposeBag()
     
