@@ -13,19 +13,11 @@ import SwiftyJSON
 
 
 class APIManager: BaseAPI {
-    func getAPI(param: Dictionary<String, Any>) -> DataRequest {
-        return AF.request(baseUrl,
-                          method: .get,
-                          parameters: param,
-                          encoding: URLEncoding.queryString)
-            .validate(statusCode: 200..<400)
-    }
-    
-    func post(param: Dictionary<String, Any>) -> Single<SearchModel> {
+    func getAPI(param: Dictionary<String, Any>) -> Observable<Search> {
         let headers: HTTPHeaders = [
             "Authorization": apiKey
         ]
-        return Single<SearchModel>.create { single in
+        return Observable<Search>.create { observer in
             AF.request(self.baseUrl,
                        method: .get,
                        parameters: param,
@@ -36,16 +28,16 @@ class APIManager: BaseAPI {
                     switch response.result {
                     case .success(let value):
                         let json = JSON(value)
-                        let meta = try? JSONDecoder().decode(MetaModel.self, from: json["meta"].rawData())
-                        var document: [ImageModel] = []
+                        let meta = try? JSONDecoder().decode(Meta.self, from: json["meta"].rawData())
+                        var document: [Document] = []
                         for d in json["documents"].array! {
-                            let img = try? JSONDecoder().decode(ImageModel.self, from: d.rawData())
+                            let img = try? JSONDecoder().decode(Document.self, from: d.rawData())
                             document.append(img!)
                         }
-                        let data = SearchModel(meta: meta!, document: document)
-                        single(.success(data))
-                    case .failure(let err):
-                        single(.failure(err))
+                        let data = Search(meta: meta!, document: document)
+                        observer.onNext(data)
+                    case .failure:
+                        observer.onError(CustomError.Custom(title: "API 연결 문제", msg: "API검색이 되지 않습니다."))
                     }
                 }
             return Disposables.create()
