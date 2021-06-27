@@ -12,12 +12,21 @@ class ImageCell: UITableViewCell {
     
     func update(imgUrl: String) {
         URLSession.shared.dataTask(with: URL(string: imgUrl)!) { (data, response, err) in
-            DispatchQueue.main.async {
-                if let data = data {
-                    self.img.image = UIImage(data: data)
+            if let data = data {
+                DispatchQueue.main.async {
+                    self.transition(toImage: UIImage(data: data))
                 }
             }
         }.resume()
+    }
+    
+    func transition(toImage image: UIImage?) {
+        UIView.transition(with: self, duration: 0.3,
+                          options: [.transitionCrossDissolve],
+                          animations: {
+                            self.img.image = image
+                          },
+                          completion: nil)
     }
 }
 

@@ -7,18 +7,16 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
-import Alamofire
 
 class MainViewModel {
     
     static let shared = MainViewModel()
     
-    var text = ""
-    var searchData: Search = Search(meta: Meta(), document: [])
+    private var text = ""
+    private var searchData: Search = Search(meta: Meta(), document: [])
     
     let service = MainService()
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     func countImages() -> Int {
         return searchData.document.count
@@ -33,11 +31,18 @@ class MainViewModel {
     }
     
     func getNewData(search: String, handler: @escaping (Bool) -> Void){
+        if search == "" {
+            handler(false)
+            return
+        }
         text = search
-        service.getDocuments(search).bind(
-            onNext: { data in
+        service.getDocuments(search){ data, success in
+            if success {
                 self.searchData = data
-            }).disposed(by: disposeBag)
+                handler(true)
+            }
+            else { handler(false) }
+        }
     }
     
     func fetchData(handler: @escaping (Bool) -> Void){
@@ -45,10 +50,17 @@ class MainViewModel {
             handler(false)
             return
         }
-        service.updateDocuments(searchData, text: text).bind(onNext: { data in
-            self.searchData = data
-            handler(true)
-        }).disposed(by: disposeBag)
+        service.fetchDocuments(searchData, text: text) { data, success in
+            if success {
+                self.searchData = data
+                handler(true)
+            }
+            else { handler(false) }
+        }
+    }
+    
+    func cancelAPI() {
+        disposeBag = DisposeBag()
     }
     
 }

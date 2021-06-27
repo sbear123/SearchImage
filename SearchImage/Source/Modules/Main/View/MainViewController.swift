@@ -31,7 +31,9 @@ class MainViewController: UIViewController, UISearchBarDelegate {
             .distinctUntilChanged()
             .subscribe(onNext: { t in
                 self.vm.getNewData(search: t.description){ success in
-                    self.collection.reloadData()
+                    if success {
+                        self.collection.reloadData()
+                    }
                 }
             }) .disposed(by: disposeBag)
     }
@@ -60,8 +62,8 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             let vc = segue.destination as? DetailViewController
-            if let cnt = sender as? Int {
-                vc?.productId = cnt
+            if let data = sender as? Document {
+                vc!.vm.document = data
             }
         }
     }
@@ -79,7 +81,7 @@ class MainViewController: UIViewController, UISearchBarDelegate {
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cnt = indexPath.item
-        self.performSegue(withIdentifier: "showDetail", sender: cnt)
+        self.performSegue(withIdentifier: "showDetail", sender: vm.getData(cnt: cnt))
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -97,6 +99,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         let data = vm.getData(cnt: indexPath.row)
+        cell.image.image = nil
         cell.update(imgUrl: data.thumbnail_url!)
         
         return cell
