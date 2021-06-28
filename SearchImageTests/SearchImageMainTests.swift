@@ -8,7 +8,7 @@
 import XCTest
 @testable import SearchImage
 
-class SearchImageTests: XCTestCase {
+class SearchImageMainTests: XCTestCase {
     
     var vc: MainViewController!
     
@@ -20,7 +20,7 @@ class SearchImageTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        
+        vc = nil
     }
 
     func testSearchPlaceholder() {

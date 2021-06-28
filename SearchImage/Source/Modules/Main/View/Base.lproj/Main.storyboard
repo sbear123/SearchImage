@@ -97,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="930" y="123"/>
         </scene>
-        <!--DetailView-->
+        <!--DetailViewController-->
         <scene sceneID="LvE-lM-38M">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="DetailView" storyboardName="Detail" referencedIdentifier="DetailView" id="2GU-FT-jj6" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Detail" referencedIdentifier="DetailViewController" id="2GU-FT-jj6" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Um7-SK-XCW"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYW-nQ-Hgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
