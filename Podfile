@@ -10,5 +10,6 @@ target 'SearchImage' do
   pod 'RxCocoa', '6.2.0'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'SwiftMessages'
 
 end

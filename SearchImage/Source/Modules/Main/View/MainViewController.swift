@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import SwiftMessages
 
 class MainViewController: UIViewController, UISearchBarDelegate {
     let vm: MainViewModel = MainViewModel.shared
@@ -30,10 +31,13 @@ class MainViewController: UIViewController, UISearchBarDelegate {
                       scheduler: MainScheduler.instance) //1초 기다림
             .distinctUntilChanged()
             .subscribe(onNext: { t in
+                if t.description == "" { return }
                 self.vm.getNewData(search: t.description){ success in
                     if success {
                         self.collection.reloadData()
                         self.collection.scrollToItem(at: IndexPath(row: 0, section: 0), at: UICollectionView.ScrollPosition(), animated: true)
+                    } else {
+                        self.makeErrorMessage(message: "서버에서 데이터를 받아오지 못하고 있습니다.")
                     }
                 }
             }) .disposed(by: disposeBag)
@@ -70,12 +74,23 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     }
     
     func makeAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        var okAction : UIAlertAction
-        
-        okAction = UIAlertAction(title: "Yes", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: false, completion: nil)
+        let view = MessageView.viewFromNib(layout: .cardView)
+        view.configureTheme(.warning)
+        view.configureDropShadow()
+        view.button?.isHidden = true
+        view.configureContent(title: title, body: message)
+        var warningConfig = SwiftMessages.defaultConfig
+        warningConfig.presentationStyle = .center
+        SwiftMessages.show(config: warningConfig, view: view)
+    }
+    
+    func makeErrorMessage(message: String) {
+        let view = MessageView.viewFromNib(layout: .cardView)
+        view.configureTheme(.error)
+        view.configureDropShadow()
+        view.button?.isHidden = true
+        view.configureContent(title: "Error", body: message)
+        SwiftMessages.show(view: view)
     }
 }
 
