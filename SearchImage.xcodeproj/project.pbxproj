@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4357B1EE26846621007A59AE /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357B1ED26846621007A59AE /* MainCell.swift */; };
 		4357B1F626846B4A007A59AE /* SearchImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357B1F526846B4A007A59AE /* SearchImageTests.swift */; };
-		4357B20426846B59007A59AE /* SearchImageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357B20326846B59007A59AE /* SearchImageUITests.swift */; };
 		4357B20C26849570007A59AE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357B20B26849570007A59AE /* DetailViewController.swift */; };
 		4357B20E26857AF6007A59AE /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357B20D26857AF6007A59AE /* DetailCell.swift */; };
 		4357B210268589AD007A59AE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357B20F268589AD007A59AE /* MainViewModel.swift */; };
@@ -40,13 +39,6 @@
 			remoteGlobalIDString = 43D8345226845A74005895DD;
 			remoteInfo = SearchImage;
 		};
-		4357B20626846B59007A59AE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 43D8344B26845A74005895DD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 43D8345226845A74005895DD;
-			remoteInfo = SearchImage;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -55,9 +47,6 @@
 		4357B1F326846B4A007A59AE /* SearchImageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchImageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4357B1F526846B4A007A59AE /* SearchImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageTests.swift; sourceTree = "<group>"; };
 		4357B1F726846B4A007A59AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4357B20126846B59007A59AE /* SearchImageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchImageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4357B20326846B59007A59AE /* SearchImageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageUITests.swift; sourceTree = "<group>"; };
-		4357B20526846B59007A59AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4357B20B26849570007A59AE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4357B20D26857AF6007A59AE /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		4357B20F268589AD007A59AE /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -85,13 +74,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		4357B1F026846B4A007A59AE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4357B1FE26846B59007A59AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -126,22 +108,13 @@
 			path = SearchImageTests;
 			sourceTree = "<group>";
 		};
-		4357B20226846B59007A59AE /* SearchImageUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4357B20326846B59007A59AE /* SearchImageUITests.swift */,
-				4357B20526846B59007A59AE /* Info.plist */,
-			);
-			path = SearchImageUITests;
-			sourceTree = "<group>";
-		};
 		4357B21526859CDD007A59AE /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				43D8346126845A75005895DD /* LaunchScreen.storyboard */,
-				4357B22E26883F6C007A59AE /* Modules */,
 				43D8346A26845A9F005895DD /* Delegates */,
 				43D8346C26845AB9005895DD /* Models */,
+				4357B22E26883F6C007A59AE /* Modules */,
 				43D8346E26845ADB005895DD /* Services */,
 			);
 			path = Source;
@@ -159,8 +132,8 @@
 		4357B22F26883F7A007A59AE /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4357B23226883F94007A59AE /* ViewModel */,
 				4357B23126883F8C007A59AE /* View */,
+				4357B23226883F94007A59AE /* ViewModel */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -168,8 +141,8 @@
 		4357B23026883F81007A59AE /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				4357B23526883FE2007A59AE /* ViewModel */,
 				4357B23426883FDD007A59AE /* View */,
+				4357B23526883FE2007A59AE /* ViewModel */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -177,9 +150,9 @@
 		4357B23126883F8C007A59AE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4357B23326883FBD007A59AE /* Cell */,
-				4357B2242686C878007A59AE /* MainViewController.swift */,
 				43D8345C26845A74005895DD /* Main.storyboard */,
+				4357B2242686C878007A59AE /* MainViewController.swift */,
+				4357B23326883FBD007A59AE /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,8 +168,8 @@
 		4357B23326883FBD007A59AE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				4357B1ED26846621007A59AE /* MainCell.swift */,
 				4357B2222686C083007A59AE /* LoadCell.swift */,
+				4357B1ED26846621007A59AE /* MainCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -204,9 +177,9 @@
 		4357B23426883FDD007A59AE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4357B1EC268465FB007A59AE /* Cell */,
-				4357B20B26849570007A59AE /* DetailViewController.swift */,
 				4357B23826884045007A59AE /* Detail.storyboard */,
+				4357B20B26849570007A59AE /* DetailViewController.swift */,
+				4357B1EC268465FB007A59AE /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,7 +197,6 @@
 			children = (
 				43D8345526845A74005895DD /* SearchImage */,
 				4357B1F426846B4A007A59AE /* SearchImageTests */,
-				4357B20226846B59007A59AE /* SearchImageUITests */,
 				43D8345426845A74005895DD /* Products */,
 				F8146CE810175E21B9F3D031 /* Pods */,
 				B27503C10EEFBB26F5DD113F /* Frameworks */,
@@ -236,7 +208,6 @@
 			children = (
 				43D8345326845A74005895DD /* SearchImage.app */,
 				4357B1F326846B4A007A59AE /* SearchImageTests.xctest */,
-				4357B20126846B59007A59AE /* SearchImageUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -263,10 +234,10 @@
 		43D8346C26845AB9005895DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4357B21326858A95007A59AE /* Search.swift */,
-				4357B21A2685C12B007A59AE /* Meta.swift */,
-				4357B21C2685C137007A59AE /* Document.swift */,
 				4357B2202686AD9C007A59AE /* CustomError.swift */,
+				4357B21C2685C137007A59AE /* Document.swift */,
+				4357B21A2685C12B007A59AE /* Meta.swift */,
+				4357B21326858A95007A59AE /* Search.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,24 +298,6 @@
 			productReference = 4357B1F326846B4A007A59AE /* SearchImageTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4357B20026846B59007A59AE /* SearchImageUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4357B20826846B59007A59AE /* Build configuration list for PBXNativeTarget "SearchImageUITests" */;
-			buildPhases = (
-				4357B1FD26846B59007A59AE /* Sources */,
-				4357B1FE26846B59007A59AE /* Frameworks */,
-				4357B1FF26846B59007A59AE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4357B20726846B59007A59AE /* PBXTargetDependency */,
-			);
-			name = SearchImageUITests;
-			productName = SearchImageUITests;
-			productReference = 4357B20126846B59007A59AE /* SearchImageUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		43D8345226845A74005895DD /* SearchImage */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43D8346726845A75005895DD /* Build configuration list for PBXNativeTarget "SearchImage" */;
@@ -377,10 +330,6 @@
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 43D8345226845A74005895DD;
 					};
-					4357B20026846B59007A59AE = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = 43D8345226845A74005895DD;
-					};
 					43D8345226845A74005895DD = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -401,20 +350,12 @@
 			targets = (
 				43D8345226845A74005895DD /* SearchImage */,
 				4357B1F226846B4A007A59AE /* SearchImageTests */,
-				4357B20026846B59007A59AE /* SearchImageUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4357B1F126846B4A007A59AE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4357B1FF26846B59007A59AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -485,14 +426,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4357B1FD26846B59007A59AE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4357B20426846B59007A59AE /* SearchImageUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		43D8344F26845A74005895DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -523,11 +456,6 @@
 			isa = PBXTargetDependency;
 			target = 43D8345226845A74005895DD /* SearchImage */;
 			targetProxy = 4357B1F826846B4A007A59AE /* PBXContainerItemProxy */;
-		};
-		4357B20726846B59007A59AE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 43D8345226845A74005895DD /* SearchImage */;
-			targetProxy = 4357B20626846B59007A59AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -591,44 +519,6 @@
 			};
 			name = Release;
 		};
-		4357B20926846B59007A59AE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A58343K98Z;
-				INFOPLIST_FILE = SearchImageUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jihyun.SearchImageUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SearchImage;
-			};
-			name = Debug;
-		};
-		4357B20A26846B59007A59AE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A58343K98Z;
-				INFOPLIST_FILE = SearchImageUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jihyun.SearchImageUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SearchImage;
-			};
-			name = Release;
-		};
 		43D8346526845A75005895DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -680,7 +570,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -735,7 +625,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -793,15 +683,6 @@
 			buildConfigurations = (
 				4357B1FB26846B4A007A59AE /* Debug */,
 				4357B1FC26846B4A007A59AE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4357B20826846B59007A59AE /* Build configuration list for PBXNativeTarget "SearchImageUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4357B20926846B59007A59AE /* Debug */,
-				4357B20A26846B59007A59AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

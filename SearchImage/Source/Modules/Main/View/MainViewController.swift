@@ -33,6 +33,7 @@ class MainViewController: UIViewController, UISearchBarDelegate {
                 self.vm.getNewData(search: t.description){ success in
                     if success {
                         self.collection.reloadData()
+                        self.collection.scrollToItem(at: IndexPath(row: 0, section: 0), at: UICollectionView.ScrollPosition(), animated: true)
                     }
                 }
             }) .disposed(by: disposeBag)
