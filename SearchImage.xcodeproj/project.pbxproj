@@ -24,6 +24,8 @@
 		4357B22D26883EEE007A59AE /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357B22C26883EEE007A59AE /* DetailViewModel.swift */; };
 		4357B23926884045007A59AE /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4357B23826884045007A59AE /* Detail.storyboard */; };
 		43CCE8D42689805600B09BBB /* SearchImageDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CCE8D32689805600B09BBB /* SearchImageDetailTests.swift */; };
+		43CCE8D62689BCC000B09BBB /* AlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CCE8D52689BCC000B09BBB /* AlertPresenterProtocol.swift */; };
+		43CCE8D92689BD6C00B09BBB /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CCE8D82689BD6C00B09BBB /* AlertPresenter.swift */; };
 		43D8345726845A74005895DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D8345626845A74005895DD /* AppDelegate.swift */; };
 		43D8345926845A74005895DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D8345826845A74005895DD /* SceneDelegate.swift */; };
 		43D8345E26845A74005895DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D8345C26845A74005895DD /* Main.storyboard */; };
@@ -63,6 +65,8 @@
 		4357B22C26883EEE007A59AE /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4357B23826884045007A59AE /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		43CCE8D32689805600B09BBB /* SearchImageDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageDetailTests.swift; sourceTree = "<group>"; };
+		43CCE8D52689BCC000B09BBB /* AlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterProtocol.swift; sourceTree = "<group>"; };
+		43CCE8D82689BD6C00B09BBB /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		43D8345326845A74005895DD /* SearchImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43D8345626845A74005895DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43D8345826845A74005895DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 		4357B22E26883F6C007A59AE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				43CCE8D72689BCC400B09BBB /* Alert */,
 				4357B23026883F81007A59AE /* Detail */,
 				4357B22F26883F7A007A59AE /* Main */,
 			);
@@ -193,6 +198,15 @@
 				4357B22C26883EEE007A59AE /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		43CCE8D72689BCC400B09BBB /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				43CCE8D52689BCC000B09BBB /* AlertPresenterProtocol.swift */,
+				43CCE8D82689BD6C00B09BBB /* AlertPresenter.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		43D8344A26845A74005895DD = {
@@ -439,6 +453,8 @@
 				4357B22B268722C1007A59AE /* MainService.swift in Sources */,
 				4357B21B2685C12B007A59AE /* Meta.swift in Sources */,
 				4357B1EE26846621007A59AE /* MainCell.swift in Sources */,
+				43CCE8D92689BD6C00B09BBB /* AlertPresenter.swift in Sources */,
+				43CCE8D62689BCC000B09BBB /* AlertPresenterProtocol.swift in Sources */,
 				4357B2192685BE84007A59AE /* APIManager.swift in Sources */,
 				4357B2232686C083007A59AE /* LoadCell.swift in Sources */,
 				4357B20E26857AF6007A59AE /* DetailCell.swift in Sources */,

@@ -7,10 +7,9 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class MainViewModel {
-    
-    static let shared = MainViewModel()
     
     private var text = ""
     private var searchData: Search = Search(meta: Meta(), document: [])

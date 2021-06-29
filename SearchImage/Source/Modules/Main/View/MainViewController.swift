@@ -7,10 +7,11 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import SwiftMessages
 
 class MainViewController: UIViewController, UISearchBarDelegate {
-    let vm: MainViewModel = MainViewModel.shared
+    let vm: MainViewModel = MainViewModel()
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var search: UISearchBar!
@@ -20,16 +21,14 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setSearch()
+        search.delegate = self
         setCollection()
+        bindOutlets()
     }
     
-    func setSearch() {
-        search.delegate = self
+    func bindOutlets() {
         search.rx.text.orEmpty
-            .debounce(RxTimeInterval.seconds(1),
-                      scheduler: MainScheduler.instance) //1초 기다림
-            .distinctUntilChanged()
+            .debounce(.seconds(1), scheduler: MainScheduler.instance) //1초 기다림
             .subscribe(onNext: { t in
                 if t.description == "" { return }
                 self.vm.getNewData(search: t.description){ success in
@@ -37,10 +36,11 @@ class MainViewController: UIViewController, UISearchBarDelegate {
                         self.collection.reloadData()
                         self.collection.scrollToItem(at: IndexPath(row: 0, section: 0), at: UICollectionView.ScrollPosition(), animated: true)
                     } else {
-                        self.makeErrorMessage(message: "서버에서 데이터를 받아오지 못하고 있습니다.")
+                        AlertPresenter.instance.ErrorAlert(body: "서버에서 데이터를 받아오지 못하고 있습니다.")
                     }
                 }
             }) .disposed(by: disposeBag)
+        
     }
     
     func setCollection(){
@@ -63,46 +63,20 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.view.endEditing(true)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            let vc = segue.destination as? DetailViewController
-            if let data = sender as? Document {
-                vc!.vm.document = data
-            }
-        }
-    }
-    
-    func makeAlert(title: String, message: String) {
-        let view = MessageView.viewFromNib(layout: .cardView)
-        view.configureTheme(.warning)
-        view.configureDropShadow()
-        view.button?.isHidden = true
-        view.configureContent(title: title, body: message)
-        var warningConfig = SwiftMessages.defaultConfig
-        warningConfig.presentationStyle = .center
-        SwiftMessages.show(config: warningConfig, view: view)
-    }
-    
-    func makeErrorMessage(message: String) {
-        let view = MessageView.viewFromNib(layout: .cardView)
-        view.configureTheme(.error)
-        view.configureDropShadow()
-        view.button?.isHidden = true
-        view.configureContent(title: "Error", body: message)
-        SwiftMessages.show(view: view)
-    }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cnt = indexPath.item
-        self.performSegue(withIdentifier: "showDetail", sender: vm.getData(cnt: cnt))
+        let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+        let detailVC = (storyboard.instantiateViewController(identifier: "DetailViewController") as? DetailViewController)!
+        detailVC.vm.document = vm.getData(cnt: cnt)
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if vm.countImages() == 0 && vm.getIsEnd() {
-            makeAlert(title: "검색결과 없음", message: "검색결과가 없습니다.")
+            AlertPresenter.instance.WarningAlert(title: "검색결과 없음", body: "검색결과가 없습니다.")
         }
         return vm.countImages()
     }
@@ -141,7 +115,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             vm.fetchData(){ success in
                 self.spinner.stopAnimating()
                 if !success{
-                    self.makeAlert(title: "마지막 페이지", message: "더이상 데이터를 불러 올 수 없습니다.")
+                    AlertPresenter.instance.WarningAlert(title: "마지막 페이지", body: "더이상 데이터를 불러 올 수 없습니다.")
                     return
                 }
                 self.collection.reloadData()

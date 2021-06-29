@@ -61,8 +61,8 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="I6X-fR-djL" id="bmX-p3-vEX"/>
-                                    <outlet property="delegate" destination="I6X-fR-djL" id="xOO-pi-CDE"/>
+                                    <outlet property="dataSource" destination="I6X-fR-djL" id="kz8-xJ-QLg"/>
+                                    <outlet property="delegate" destination="I6X-fR-djL" id="W4d-AN-kGZ"/>
                                 </connections>
                             </collectionView>
                             <searchBar contentMode="redraw" placeholder="검색어를 입력하세요." translatesAutoresizingMaskIntoConstraints="NO" id="kBJ-eY-hSV">

@@ -11,7 +11,7 @@ class DetailViewController: UITableViewController {
     
     @IBOutlet var table: UITableView!
     
-    let vm: DetailViewModel = DetailViewModel.shared
+    let vm: DetailViewModel = DetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,7 @@ extension DetailViewController {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "imgCell", for: indexPath) as! ImageCell
             
+            cell.selectionStyle = .none
             cell.update(imgUrl: vm.document!.image_url!)
             return cell
         }
@@ -31,6 +32,7 @@ extension DetailViewController {
             table.rowHeight = 72
             let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath) as! LabelCell
             
+            cell.selectionStyle = .none
             let data = vm.document!
             cell.update(site: data.display_sitename, date: data.datetime)
             

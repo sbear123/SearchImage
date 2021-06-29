@@ -10,8 +10,6 @@ import UIKit
 
 class DetailViewModel {
     
-    static let shared = DetailViewModel()
-    
     var document: Document?
     
     func getNewHeight(_ vWidth: CGFloat) -> CGFloat {
