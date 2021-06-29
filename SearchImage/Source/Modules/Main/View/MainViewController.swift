@@ -33,8 +33,8 @@ class MainViewController: UIViewController, UISearchBarDelegate {
                 if t.description == "" { return }
                 self.vm.getNewData(search: t.description){ success in
                     if success {
-                        self.collection.reloadData()
                         self.collection.scrollToItem(at: IndexPath(row: 0, section: 0), at: UICollectionView.ScrollPosition(), animated: true)
+                        self.collection.reloadData()
                     } else {
                         AlertPresenter.instance.ErrorAlert(body: "서버에서 데이터를 받아오지 못하고 있습니다.")
                     }
@@ -87,6 +87,18 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 MainCell else {
             return UICollectionViewCell()
         }
+        
+        cell.contentView.layer.cornerRadius = 10
+        cell.contentView.layer.borderWidth = 1.0
+        cell.contentView.layer.borderColor = UIColor.clear.cgColor
+        cell.contentView.layer.masksToBounds = true
+        
+        cell.layer.shadowColor = UIColor.lightGray.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        cell.layer.shadowRadius = 2.0
+        cell.layer.shadowOpacity = 1.0
+        cell.layer.masksToBounds = false
+        cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
         
         let data = vm.getData(cnt: indexPath.row)
         cell.image.image = nil
