@@ -34,7 +34,8 @@ extension DetailViewController {
             
             cell.selectionStyle = .none
             let data = vm.document!
-            cell.update(site: data.display_sitename, date: data.datetime)
+            let date = vm.stringConvertToDateTime()
+            cell.update(site: data.display_sitename, date: date)
             
             return cell
         }
