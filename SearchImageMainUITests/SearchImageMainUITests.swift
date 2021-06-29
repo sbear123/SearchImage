@@ -21,13 +21,21 @@ class SearchImageMainUITests: XCTestCase {
         
     }
     
-    func testSearchTest() {
+    func testSearch() {
         let searchField = app.searchFields.firstMatch
         XCTAssertTrue(searchField.exists)
         
         searchField.tap()
-        searchField.typeText("안녕하세요.")
+        searchField.typeText("안녕하세요.\n")
+        
         let resultCell = app.cells.firstMatch
         XCTAssertTrue(resultCell.waitForExistence(timeout: 10))
+        
+        
+        let collectionView = app.collectionViews.element
+        collectionView.swipeUp()
+        collectionView.swipeUp()
+        
+        collectionView.tap()
     }
 }

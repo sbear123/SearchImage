@@ -27,17 +27,12 @@ class SearchImageMainTests: XCTestCase {
         XCTAssertEqual(vc.search.placeholder, "검색어를 입력하세요.", "Error) placeholder가 \"검색어를 입력하세요\"가 아닙니다.")
     }
     
-    func test30Items() {
+    func testItems() {
         vc.vm.getNewData(search: "안녕하세요"){ success in
-            if success {
-                XCTAssertEqual(self.vc.vm.countImages(), 30, "Error) 불러온 이미지가 30개가 아닙니다.")
-            }
-        }
-    }
-    
-    func testFetchData() {
-        vc.vm.fetchData{ success in
-            if success {
+            XCTAssertTrue(success)
+            XCTAssertEqual(self.vc.vm.countImages(), 30, "Error) 불러온 이미지가 30개가 아닙니다.")
+            self.vc.vm.fetchData{ success in
+                XCTAssertTrue(success)
                 XCTAssertEqual(self.vc.vm.countImages(), 60, "Error) 추가로 불러온 이미지가 60개가 아닙니다.")
             }
         }
