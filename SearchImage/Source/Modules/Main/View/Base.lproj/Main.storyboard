@@ -90,22 +90,11 @@
                     <connections>
                         <outlet property="collection" destination="yDx-ec-M5z" id="nm5-eE-27z"/>
                         <outlet property="search" destination="kBJ-eY-hSV" id="xeG-08-FFQ"/>
-                        <segue destination="2GU-FT-jj6" kind="show" identifier="showDetail" id="r64-1s-KR1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XoE-bj-RCv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="930" y="123"/>
-        </scene>
-        <!--DetailViewController-->
-        <scene sceneID="LvE-lM-38M">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Detail" referencedIdentifier="DetailViewController" id="2GU-FT-jj6" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Um7-SK-XCW"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uYW-nQ-Hgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1449" y="123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L9x-cZ-sLl">
