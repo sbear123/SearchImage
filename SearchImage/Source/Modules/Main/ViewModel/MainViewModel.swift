@@ -58,8 +58,4 @@ class MainViewModel {
         }
     }
     
-    func cancelAPI() {
-        disposeBag = DisposeBag()
-    }
-    
 }
