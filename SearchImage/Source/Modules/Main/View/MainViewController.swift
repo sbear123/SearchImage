@@ -27,10 +27,12 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     }
     
     func bindOutlets() {
-        search.rx.text.orEmpty
+        search.rx.text
+            .orEmpty
             .debounce(.seconds(1), scheduler: MainScheduler.instance) //1초 기다림
+            .distinctUntilChanged()
+            .filter { !$0.isEmpty }
             .subscribe(onNext: { t in
-                if t.description == "" { return }
                 self.vm.getNewData(search: t.description){ success in
                     if success {
                         self.collection.scrollToItem(at: IndexPath(row: 0, section: 0), at: UICollectionView.ScrollPosition(), animated: true)
@@ -51,7 +53,7 @@ class MainViewController: UIViewController, UISearchBarDelegate {
         collection.collectionViewLayout = flowLayout
         collection.register(LoadCell.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-                            withReuseIdentifier: "MyFooterView")
+                            withReuseIdentifier: "LoadView")
         
         (collection.collectionViewLayout as? UICollectionViewFlowLayout)?.footerReferenceSize = CGSize(width: collection.bounds.width, height: 50)
     }
@@ -88,18 +90,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionViewCell()
         }
         
-        cell.contentView.layer.cornerRadius = 10
-        cell.contentView.layer.borderWidth = 1.0
-        cell.contentView.layer.borderColor = UIColor.clear.cgColor
-        cell.contentView.layer.masksToBounds = true
-        
-        cell.layer.shadowColor = UIColor.lightGray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        cell.layer.shadowRadius = 2.0
-        cell.layer.shadowOpacity = 1.0
-        cell.layer.masksToBounds = false
-        cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
-        
+        cell.cellStyle()
         let data = vm.getData(cnt: indexPath.row)
         cell.image.image = nil
         cell.update(imgUrl: data.thumbnail_url!)
@@ -111,7 +102,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionFooter {
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "MyFooterView", for: indexPath)
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "LoadView", for: indexPath)
             footer.addSubview(spinner)
             spinner.frame = CGRect(x: 0, y: 0, width: collectionView.bounds.width, height: 50)
             return footer

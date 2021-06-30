@@ -30,10 +30,6 @@ class MainViewModel {
     }
     
     func getNewData(search: String, handler: @escaping (Bool) -> Void){
-        if search == "" {
-            handler(false)
-            return
-        }
         text = search
         service.getDocuments(search){ data, success in
             if success {
@@ -45,7 +41,7 @@ class MainViewModel {
     }
     
     func fetchData(handler: @escaping (Bool) -> Void){
-        if text == "" || searchData.meta!.is_end {
+        if searchData.meta!.is_end {
             handler(false)
             return
         }
