@@ -12,10 +12,6 @@ final class AlertPresenter: AlertPresenterProtocol {
     
     public static let instance: AlertPresenter = AlertPresenter()
     
-    private init() {
-        
-    }
-    
     func ErrorAlert(body: String) {
         let view = MessageView.viewFromNib(layout: .cardView)
         view.configureTheme(.warning)
