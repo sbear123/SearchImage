@@ -13,6 +13,7 @@ import SwiftMessages
 class MainViewController: UIViewController, UISearchBarDelegate {
     let vm: MainViewModel = MainViewModel()
     let disposeBag = DisposeBag()
+    let coordinator: DetailCoordinator = DetailCoordinator()
     
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var collection: UICollectionView!
@@ -42,7 +43,6 @@ class MainViewController: UIViewController, UISearchBarDelegate {
                     }
                 }
             }) .disposed(by: disposeBag)
-        
     }
     
     func setCollection(){
@@ -70,10 +70,7 @@ class MainViewController: UIViewController, UISearchBarDelegate {
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cnt = indexPath.item
-        let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-        let detailVC = (storyboard.instantiateViewController(identifier: "DetailViewController") as? DetailViewController)!
-        detailVC.vm.document = vm.getData(cnt: cnt)
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        coordinator.pushToDetail(self.navigationController, doc: vm.getData(cnt: cnt))
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
