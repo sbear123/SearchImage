@@ -107,10 +107,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return UICollectionReusableView()
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        willDisplay cell: UICollectionViewCell,
-                        forItemAt indexPath: IndexPath) {
-        if indexPath.item == vm.countImages() - 1 {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.y + 1) >= (scrollView.contentSize.height - scrollView.frame.size.height) {
             spinner.startAnimating()
             vm.fetchData(){ success in
                 self.spinner.stopAnimating()
