@@ -53,9 +53,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43CCE8DF268AF93A00B09BBB"
-               BuildableName = "SearchImageMainUITests.xctest"
-               BlueprintName = "SearchImageMainUITests"
+               BlueprintIdentifier = "43EE4EA8268C4AAE00148663"
+               BuildableName = "SearchImageUITests.xctest"
+               BlueprintName = "SearchImageUITests"
                ReferencedContainer = "container:SearchImage.xcodeproj">
             </BuildableReference>
          </TestableReference>

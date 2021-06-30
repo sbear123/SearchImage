@@ -84,7 +84,7 @@
 		43D8346226845A75005895DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43D8346426845A75005895DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43EE4E84268C03DC00148663 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
-		43EE4EA9268C4AAE00148663 /* SearchImageMainUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchImageMainUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43EE4EA9268C4AAE00148663 /* SearchImageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchImageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EE4EAB268C4AAE00148663 /* SearchImageMainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageMainUITests.swift; sourceTree = "<group>"; };
 		43EE4EAD268C4AAE00148663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58101D9876105C58BC809169 /* Pods-SearchImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchImage.release.xcconfig"; path = "Target Support Files/Pods-SearchImage/Pods-SearchImage.release.xcconfig"; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 				F8146CE810175E21B9F3D031 /* Pods */,
 				43D8345426845A74005895DD /* Products */,
 				43D8345526845A74005895DD /* SearchImage */,
-				43EE4EAA268C4AAE00148663 /* SearchImageMainUITests */,
+				43EE4EAA268C4AAE00148663 /* SearchImageUITests */,
 				4357B1F426846B4A007A59AE /* SearchImageTests */,
 			);
 			sourceTree = "<group>";
@@ -247,7 +247,7 @@
 			children = (
 				43D8345326845A74005895DD /* SearchImage.app */,
 				4357B1F326846B4A007A59AE /* SearchImageTests.xctest */,
-				43EE4EA9268C4AAE00148663 /* SearchImageMainUITests.xctest */,
+				43EE4EA9268C4AAE00148663 /* SearchImageUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -300,13 +300,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		43EE4EAA268C4AAE00148663 /* SearchImageMainUITests */ = {
+		43EE4EAA268C4AAE00148663 /* SearchImageUITests */ = {
 			isa = PBXGroup;
 			children = (
 				43EE4EAB268C4AAE00148663 /* SearchImageMainUITests.swift */,
 				43EE4EAD268C4AAE00148663 /* Info.plist */,
 			);
-			path = SearchImageMainUITests;
+			path = SearchImageUITests;
 			sourceTree = "<group>";
 		};
 		B27503C10EEFBB26F5DD113F /* Frameworks */ = {
@@ -366,9 +366,9 @@
 			productReference = 43D8345326845A74005895DD /* SearchImage.app */;
 			productType = "com.apple.product-type.application";
 		};
-		43EE4EA8268C4AAE00148663 /* SearchImageMainUITests */ = {
+		43EE4EA8268C4AAE00148663 /* SearchImageUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43EE4EB0268C4AAE00148663 /* Build configuration list for PBXNativeTarget "SearchImageMainUITests" */;
+			buildConfigurationList = 43EE4EB0268C4AAE00148663 /* Build configuration list for PBXNativeTarget "SearchImageUITests" */;
 			buildPhases = (
 				43EE4EA5268C4AAE00148663 /* Sources */,
 				43EE4EA6268C4AAE00148663 /* Frameworks */,
@@ -379,9 +379,9 @@
 			dependencies = (
 				43EE4EAF268C4AAE00148663 /* PBXTargetDependency */,
 			);
-			name = SearchImageMainUITests;
+			name = SearchImageUITests;
 			productName = SearchImageMainUITests;
-			productReference = 43EE4EA9268C4AAE00148663 /* SearchImageMainUITests.xctest */;
+			productReference = 43EE4EA9268C4AAE00148663 /* SearchImageUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -421,7 +421,7 @@
 			targets = (
 				43D8345226845A74005895DD /* SearchImage */,
 				4357B1F226846B4A007A59AE /* SearchImageTests */,
-				43EE4EA8268C4AAE00148663 /* SearchImageMainUITests */,
+				43EE4EA8268C4AAE00148663 /* SearchImageUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -776,7 +776,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A58343K98Z;
-				INFOPLIST_FILE = SearchImageMainUITests/Info.plist;
+				INFOPLIST_FILE = SearchImageUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -796,7 +796,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A58343K98Z;
-				INFOPLIST_FILE = SearchImageMainUITests/Info.plist;
+				INFOPLIST_FILE = SearchImageUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -841,7 +841,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43EE4EB0268C4AAE00148663 /* Build configuration list for PBXNativeTarget "SearchImageMainUITests" */ = {
+		43EE4EB0268C4AAE00148663 /* Build configuration list for PBXNativeTarget "SearchImageUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43EE4EB1268C4AAE00148663 /* Debug */,
