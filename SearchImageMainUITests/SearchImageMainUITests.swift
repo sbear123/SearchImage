@@ -34,8 +34,7 @@ class SearchImageMainUITests: XCTestCase {
         
         let collectionView = app.collectionViews.element
         collectionView.swipeUp()
-        collectionView.swipeUp()
-        
+        sleep(2)
         collectionView.tap()
     }
 }
